@@ -10,6 +10,7 @@ body {
   --main-colour: rgba(255, 255, 255, 0.65);
   --total-steps: 60;
   --delay-seconds: 0;
+  --delay-minutes: 0;
 }
 
 svg.segments {
@@ -88,6 +89,8 @@ svg.segments > circle {
   height: calc(var(--size) / 3);
   top: calc(var(--size) / 6);
   animation-duration: 3600s;
+  animation-delay: var(--delay-minutes);
+  opacity: 0;
 }
 
 .arm-centre {
