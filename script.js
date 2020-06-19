@@ -14,8 +14,8 @@ function setClockArms() {
   minutesArm.style.opacity = 1;
   minutesArm.style.transition = 'all 0.3s ease';
  
-  // const minutes = new Date().getMinutes();
-  // console.log(minutes)
-  // document.documentElement.style.setProperty('--delay-minutes', `-${minutes}s`);
+  const minutes = new Date().getMinutes();
+  document.documentElement.style.setProperty('--delay-minutes', `-${minutes * 60}s`);
+  console.log(minutes * 60)
 
 }

@@ -13,55 +13,6 @@ body {
   --delay-minutes: 0;
 }
 
-svg.segments {
-  width: var(--size);
-  height: var(--size);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-svg.segments > circle {
-  --gap: var(--arm-width);
-  --pi: 3.14159;
-  --segment: calc((2 * var(--pi) * var(--size)/2)/12); /* see 3 in notes.md */
-  stroke: var(--main-colour);
-  fill: none; 
-  stroke-opacity: 1; 
-  stroke-width: calc(var(--arm-width));
-  stroke-dasharray: calc(var(--segment) - var(--gap)) var(--gap); 
-  stroke-dashoffset: calc(var(--gap)/2 * -1);
-  stroke-linecap: butt;
-}
-
-.container {
-  width: fit-content;
-  margin: 30px auto;
-  padding: 30px;
-  max-width: var(--size);
-}
-
-.header {
-  text-align: center;
-  color: #fff;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.7rem;
-  font-weight: bold;
-  margin: 0 0 40px 0;
-  text-shadow: 0 2px 5px #000;
-}
-
-.outline {
-  width: var(--size);
-  height: var(--size);
-  position: relative;
-}
-
-.outline.border {
-  border: 10px solid var(--main-colour);
-  border-radius: 50%;
-}
-
 .arm {
   width: var(--arm-width);
   position: absolute;
@@ -74,7 +25,8 @@ svg.segments > circle {
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-timing-function: steps(var(--total-steps), end);
-  animation-fill-mode: forwards; 
+  animation-fill-mode: forwards;
+  box-shadow: 2px 2px 15px 5px #00000033;
 }
 
 .arm.seconds {
@@ -106,6 +58,55 @@ svg.segments > circle {
 arm.rounded-end {
   border-top-right-radius: calc(var(--arm-width)/2);
   border-top-left-radius: calc(var(--arm-width)/2);
+}
+
+.container {
+  width: fit-content;
+  margin: 30px auto;
+  padding: 30px;
+  max-width: var(--size);
+}
+
+.header {
+  text-align: center;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin: 0 0 40px 0;
+  text-shadow: 0 2px 5px #000;
+}
+
+.outline {
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+}
+
+.outline.border {
+  border: 10px solid var(--main-colour);
+  border-radius: 50%;
+}
+
+svg.segments {
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+svg.segments > circle {
+  --gap: var(--arm-width);
+  --pi: 3.14159;
+  --segment: calc((2 * var(--pi) * var(--size)/2)/12); /* see 3 in notes.md */
+  stroke: var(--main-colour);
+  fill: none; 
+  stroke-opacity: 1; 
+  stroke-width: calc(var(--arm-width));
+  stroke-dasharray: calc(var(--segment) - var(--gap)) var(--gap); 
+  stroke-dashoffset: calc(var(--gap)/2 * -1);
+  stroke-linecap: butt;
 }
 
 @keyframes move {
