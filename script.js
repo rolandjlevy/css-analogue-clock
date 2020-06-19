@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function setClockArms() {
   const secondsArm = document.querySelector('.arm.seconds');
   const seconds = new Date().getSeconds();
-  const degSeconds = seconds * 6;
+  secondsArm.style.opacity = 1;
+  secondsArm.style.transition = 'all 0.3s ease';
   document.documentElement.style.setProperty('--delay-seconds', `-${seconds}s`);
 
   // const minutesArm = document.querySelector('.arm.minutes');

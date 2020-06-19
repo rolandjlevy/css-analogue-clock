@@ -81,6 +81,7 @@ svg.segments > circle {
   top: 0;
   animation-duration: 60s;
   animation-delay: var(--delay-seconds);
+  opacity: 0;
 }
 
 .arm.minutes {
