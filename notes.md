@@ -4,15 +4,15 @@ https://stackoverflow.com/questions/56036195/create-svg-circle-using-path-with-6
 
 The circle can be divided into 6 segments using the attribute stroke-dasharray
 
-**Example 1**: The full circumference with a radius r = "100px" is equal to 2 x 3.14159 x 100 = 628.318px
+**1**: The full circumference with a radius r = "100px" is equal to 2 x 3.14159 x 100 = 628.318px
 The length of one sector 628.318 / 6 = 104.72px
 Parameters for attribute stroke-dasharray = "100 4.72"
 
-**Example 2**: The full circumference with a radius r = "150px" is equal to 2 x 3.14159 x 150 = 942.477px
+**2**: The full circumference with a radius r = "150px" is equal to 2 x 3.14159 x 150 = 942.477px
 The length of one sector 942.477 / 6 = 157.1px
 Parameters for attribute stroke-dasharray = "150 7.1"
 
-**Example 3**: The full circumference with a radius r = "150px" is equal to 2 x 3.14159 x 150 = 942.477px
+**3**: The full circumference with a radius r = "150px" is equal to 2 x 3.14159 x 150 = 942.477px
 The length of one sector 942.477 / 12 = 78.53975px
 Parameters for attribute stroke-dasharray = "75 3.54"
 

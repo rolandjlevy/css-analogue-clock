@@ -21,7 +21,7 @@ svg.segments {
 svg.segments > circle {
   --gap: var(--arm-width);
   --pi: 3.14159;
-  --segment: calc((2 * var(--pi) * var(--size)/2)/12); /* see notes */
+  --segment: calc((2 * var(--pi) * var(--size)/2)/12); /* see 3 in notes.md */
   stroke: var(--main-colour);
   fill: none; 
   stroke-opacity: 1; 
@@ -43,7 +43,9 @@ svg.segments > circle {
   color: #fff;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.7rem;
-  margin: 0 0 20px 0;
+  font-weight: bold;
+  margin: 0 0 40px 0;
+  text-shadow: 0 2px 5px #000;
 }
 
 .outline {
@@ -73,11 +75,6 @@ svg.segments > circle {
   animation-delay: 0;
 }
 
-arm.rounded-end {
-  border-top-right-radius: calc(var(--arm-width)/2);
-  border-top-left-radius: calc(var(--arm-width)/2);
-}
-
 .arm.seconds {
   height: calc(var(--size) / 2);
   top: 0;
@@ -100,20 +97,12 @@ arm.rounded-end {
   background-color: var(--main-colour);
 }
 
+arm.rounded-end {
+  border-top-right-radius: calc(var(--arm-width)/2);
+  border-top-left-radius: calc(var(--arm-width)/2);
+}
+
 @keyframes move {
   0%      { transform: rotate(0deg); }
   100%    { transform: rotate(360deg); }
-}
-
-svg.test {
-  width: 310px;
-  height: 310px;
-  background: #333;
-}
-
-svg.test #shape {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 10;
-  stroke-dasharray: 70,10;
 }
