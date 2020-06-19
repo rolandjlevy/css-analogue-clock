@@ -6,22 +6,29 @@ body {
 
 :root {
   --size: 300px;
-  --pi: 3.14159;
-  --arm-width: 20px;
+  --arm-width: 16px;
   --main-colour: rgba(255, 255, 255, 0.65);
 }
 
 svg.segments {
-  width: 300px;
-  height: 300px;
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 svg.segments > circle {
-  stroke:var(--main-colour);
+  --gap: var(--arm-width);
+  --pi: 3.14159;
+  --segment: calc((2 * var(--pi) * var(--size)/2)/12); /* see notes */
+  stroke: var(--main-colour);
   fill: none; 
   stroke-opacity: 1; 
-  stroke-width: 10; 
-  stroke-dasharray: 75 3.55;
+  stroke-width: calc(var(--arm-width));
+  stroke-dasharray: calc(var(--segment) - var(--gap)) var(--gap); 
+  stroke-dashoffset: calc(var(--gap)/2 * -1);
+  stroke-linecap: butt;
 }
 
 .container {
@@ -42,9 +49,12 @@ svg.segments > circle {
 .outline {
   width: var(--size);
   height: var(--size);
+  position: relative;
+}
+
+.outline.border {
   border: 10px solid var(--main-colour);
   border-radius: 50%;
-  position: relative;
 }
 
 .arm {
@@ -61,6 +71,9 @@ svg.segments > circle {
   animation-timing-function: steps(60, end);
   animation-fill-mode: forwards; 
   animation-delay: 0;
+}
+
+arm.rounded-end {
   border-top-right-radius: calc(var(--arm-width)/2);
   border-top-left-radius: calc(var(--arm-width)/2);
 }
@@ -72,8 +85,8 @@ svg.segments > circle {
 }
 
 .arm.minutes {
-  height: calc(var(--size) / 4);
-  top: calc(var(--size)/4);
+  height: calc(var(--size) / 3);
+  top: calc(var(--size) / 6);
   animation-duration: 3600s;
 }
 

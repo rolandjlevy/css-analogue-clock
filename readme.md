@@ -14,3 +14,4 @@
 - next, place numbers on circle path with sgv: http://thenewcode.com/482/Placing-Text-on-a-Circle-with-SVG
 - https://codepen.io/rdfriedl/pen/rOegaP
 - https://oreillymedia.github.io/Using_SVG/extras/ch07-textpaths.html
+- https://stackoverflow.com/questions/56036195/create-svg-circle-using-path-with-6-segments/56039943
