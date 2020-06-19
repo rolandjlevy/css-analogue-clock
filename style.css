@@ -8,6 +8,8 @@ body {
   --size: 300px;
   --arm-width: 16px;
   --main-colour: rgba(255, 255, 255, 0.65);
+  --total-steps: 60;
+  --delay-seconds: 0;
 }
 
 svg.segments {
@@ -70,15 +72,15 @@ svg.segments > circle {
   animation-name: move;
   animation-iteration-count: infinite;
   animation-direction: normal;
-  animation-timing-function: steps(60, end);
+  animation-timing-function: steps(var(--total-steps), end);
   animation-fill-mode: forwards; 
-  animation-delay: 0;
 }
 
 .arm.seconds {
   height: calc(var(--size) / 2);
   top: 0;
   animation-duration: 60s;
+  animation-delay: var(--delay-seconds);
 }
 
 .arm.minutes {
@@ -103,6 +105,7 @@ arm.rounded-end {
 }
 
 @keyframes move {
-  0%      { transform: rotate(0deg); }
-  100%    { transform: rotate(360deg); }
+  to { 
+    transform: rotate(360deg); 
+  }
 }

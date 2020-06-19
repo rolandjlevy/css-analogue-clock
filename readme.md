@@ -15,3 +15,5 @@
 - https://codepen.io/rdfriedl/pen/rOegaP
 - https://oreillymedia.github.io/Using_SVG/extras/ch07-textpaths.html
 - https://stackoverflow.com/questions/56036195/create-svg-circle-using-path-with-6-segments/56039943
+- https://davidwalsh.name/css-variables-javascript
+- https://javascript.info/css-animations
