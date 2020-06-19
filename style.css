@@ -7,7 +7,7 @@ body {
 :root {
   --size: 300px;
   --arm-width: 10px;
-  --main-colour: rgba(255, 255, 255, 0.5);
+  --main-colour: rgba(255, 255, 255, 0.65);
 }
 
 .container {
@@ -19,7 +19,8 @@ body {
 
 .header {
   text-align: center;
-  color: var(--main-colour);
+  /* color: var(--main-colour); */
+  color: #fff;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.7rem;
   margin: 0 0 20px 0;
