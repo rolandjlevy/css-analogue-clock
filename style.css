@@ -6,8 +6,22 @@ body {
 
 :root {
   --size: 300px;
-  --arm-width: 10px;
+  --pi: 3.14159;
+  --arm-width: 20px;
   --main-colour: rgba(255, 255, 255, 0.65);
+}
+
+svg.segments {
+  width: 300px;
+  height: 300px;
+}
+
+svg.segments > circle {
+  stroke:var(--main-colour);
+  fill: none; 
+  stroke-opacity: 1; 
+  stroke-width: 10; 
+  stroke-dasharray: 75 3.55;
 }
 
 .container {
@@ -19,7 +33,6 @@ body {
 
 .header {
   text-align: center;
-  /* color: var(--main-colour); */
   color: #fff;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.7rem;
@@ -48,8 +61,8 @@ body {
   animation-timing-function: steps(60, end);
   animation-fill-mode: forwards; 
   animation-delay: 0;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  border-top-right-radius: calc(var(--arm-width)/2);
+  border-top-left-radius: calc(var(--arm-width)/2);
 }
 
 .arm.seconds {
@@ -77,4 +90,17 @@ body {
 @keyframes move {
   0%      { transform: rotate(0deg); }
   100%    { transform: rotate(360deg); }
+}
+
+svg.test {
+  width: 310px;
+  height: 310px;
+  background: #333;
+}
+
+svg.test #shape {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 10;
+  stroke-dasharray: 70,10;
 }
