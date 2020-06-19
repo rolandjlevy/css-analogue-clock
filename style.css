@@ -47,6 +47,8 @@ body {
   animation-timing-function: steps(60, end);
   animation-fill-mode: forwards; 
   animation-delay: 0;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .arm.seconds {
