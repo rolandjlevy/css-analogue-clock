@@ -1,18 +1,23 @@
-body {
-  box-sizing: border-box;
-  margin: 20px;
-  background-color: #333;
-}
-
 :root {
   --size: 300px;
   --arm-width: 16px;
-  --main-colour: rgba(255, 255, 255, 0.65);
+  --main-colour: rgba(255, 255, 255, 0.7);
+  /* --main-colour: rgba(0, 226, 215, 0.7); */
+  --bg-colour: #333;
   --total-steps: 60;
   --duration-seconds: 60s;
   --duration-minutes: 3600s;
+  --duration-hours: 43200s;
   --delay-seconds: 0;
   --delay-minutes: 0;
+  --delay-hours: 0;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 20px;
+  background-color: var(--bg-colour);
+  /* background-color: #fff; */
 }
 
 .arm {
@@ -20,37 +25,47 @@ body {
   position: absolute;
   left: calc(var(--size)/2 - var(--arm-width)/2);
   background-color: var(--main-colour);
-  background-image: linear-gradient(var(--main-colour), #333);
   border: 0;
   transform-origin: calc(100% - var(--arm-width)/2) 100%;
   box-shadow: 2px 2px 15px 5px #00000033;
   animation-name: move;
   animation-iteration-count: infinite;
   animation-direction: normal;
-  animation-timing-function: steps(var(--total-steps), end);
   animation-fill-mode: forwards;
 }
 
-.animate {
-}
-
 .arm.seconds {
-  height: calc(var(--size) / 2);
-  top: 0;
+  height: calc(var(--size) / 2); /* 150px */
+  top: 0; /* 0px */
   animation-duration: var(--duration-seconds);
   animation-delay: var(--delay-seconds);
+  animation-timing-function: steps(var(--total-steps), end);
   opacity: 0;
+  background-image: linear-gradient(var(--main-colour) 0%, var(--bg-colour) 90%);
 }
 
 .arm.minutes {
-  height: calc(var(--size) / 3);
-  top: calc(var(--size) / 6);
+  height: calc(var(--size) / 3); /* 100px */
+  top: calc(var(--size) / 6); /* 50px */
   animation-duration: var(--duration-minutes);
   animation-delay: var(--delay-minutes);
+  animation-timing-function: steps(var(--total-steps), end);
   opacity: 0;
+  background-image: linear-gradient(var(--main-colour) 20%, var(--bg-colour) 80%);
 }
 
-.arm-centre {
+.arm.hours {
+  height: calc(var(--size) / 4); /* 75px */
+  top: calc(var(--size) / 4); /* 75px */
+  animation-duration: var(--duration-hours);
+  animation-delay: var(--delay-hours);
+  animation-timing-function: linear;
+  opacity: 0;
+  background-image: linear-gradient(var(--main-colour) 10%, var(--bg-colour) 80%);
+}
+
+.clock-centre {
+  opacity: 1;
   height: calc(var(--arm-width)*2);
   width: calc(var(--arm-width)*2);
   top: calc(var(--size)/2 - var(--arm-width));
@@ -99,7 +114,7 @@ svg.segments {
   position: absolute;
   top: 0;
   left: 0;
-  filter: blur(2px);
+  /* filter: blur(2px); */
 }
 
 svg.segments > circle {
