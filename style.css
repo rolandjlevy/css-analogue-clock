@@ -9,6 +9,8 @@ body {
   --arm-width: 16px;
   --main-colour: rgba(255, 255, 255, 0.65);
   --total-steps: 60;
+  --duration-seconds: 60s;
+  --duration-minutes: 3600s;
   --delay-seconds: 0;
   --delay-minutes: 0;
 }
@@ -21,18 +23,21 @@ body {
   background-image: linear-gradient(var(--main-colour), #333);
   border: 0;
   transform-origin: calc(100% - var(--arm-width)/2) 100%;
+  box-shadow: 2px 2px 15px 5px #00000033;
   animation-name: move;
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-timing-function: steps(var(--total-steps), end);
   animation-fill-mode: forwards;
-  box-shadow: 2px 2px 15px 5px #00000033;
+}
+
+.animate {
 }
 
 .arm.seconds {
   height: calc(var(--size) / 2);
   top: 0;
-  animation-duration: 60s;
+  animation-duration: var(--duration-seconds);
   animation-delay: var(--delay-seconds);
   opacity: 0;
 }
@@ -40,7 +45,7 @@ body {
 .arm.minutes {
   height: calc(var(--size) / 3);
   top: calc(var(--size) / 6);
-  animation-duration: 3600s;
+  animation-duration: var(--duration-minutes);
   animation-delay: var(--delay-minutes);
   opacity: 0;
 }
@@ -94,6 +99,7 @@ svg.segments {
   position: absolute;
   top: 0;
   left: 0;
+  filter: blur(2px);
 }
 
 svg.segments > circle {
