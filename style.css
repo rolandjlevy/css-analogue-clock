@@ -1,8 +1,10 @@
 :root {
   --size: 300px;
   --arm-width: 15px;
-  --main-colour: #ffffffb3;
+  --main-colour: #ffffffbb;
   --bg-colour: #333;
+  --primary-gradient-colour: #ff3d77; /* ff0066 */
+  --secondary-gradient-colour: #ffc400;
   --total-steps: 60;
   --duration-seconds: 60s;
   --duration-minutes: 3600s;
@@ -15,7 +17,7 @@
 body {
   box-sizing: border-box;
   margin: 20px;
-  background-color: var(--bg-colour);
+  background-color: #000;
 }
 
 .arm {
@@ -26,6 +28,7 @@ body {
   transform-origin: calc(100% - var(--arm-width)/2) 100%;
   box-shadow: 2px 2px 15px 5px #00000033;
   opacity: 0;
+  mix-blend-mode: screen;
 }
 
 .animate {
@@ -41,7 +44,7 @@ body {
   animation-duration: var(--duration-seconds);
   animation-delay: var(--delay-seconds);
   animation-timing-function: steps(var(--total-steps), end);
-  background-image: linear-gradient(var(--main-colour) 0%, var(--bg-colour) 90%);
+  background-image: linear-gradient(var(--main-colour) 0%, var(--primary-gradient-colour) 90%);
 }
 
 .arm.minutes {
@@ -50,7 +53,7 @@ body {
   animation-duration: var(--duration-minutes);
   animation-delay: var(--delay-minutes);
   animation-timing-function: steps(var(--total-steps), end);
-  background-image: linear-gradient(var(--main-colour) 20%, var(--bg-colour) 80%);
+  background-image: linear-gradient(var(--main-colour) 20%, var(--primary-gradient-colour) 80%);
 }
 
 .arm.hours {
@@ -59,7 +62,7 @@ body {
   animation-duration: var(--duration-hours);
   animation-delay: var(--delay-hours);
   animation-timing-function: linear;
-  background-image: linear-gradient(var(--main-colour) 10%, var(--bg-colour) 80%);
+  background-image: linear-gradient(var(--main-colour) 10%, var(--primary-gradient-colour) 80%);
 }
 
 .clock-centre {
@@ -70,7 +73,7 @@ body {
   left: calc(var(--size)/2 - var(--arm-width));
   position: absolute;
   border-radius: 50%;
-  background-color: var(--main-colour);
+  background-color: #fff;
 }
 
 arm.rounded-end {
@@ -79,29 +82,19 @@ arm.rounded-end {
 }
 
 .container {
-  width: fit-content;
-  margin: 60px auto;
-  max-width: var(--size);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 }
 
-.header {
-  text-align: center;
-  color: #fff;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.7rem;
-  font-weight: bold;
-  margin: 0 0 40px 0;
-  text-shadow: 0 2px 5px #000;
-}
-
-.outline {
+.outer-circle {
   width: var(--size);
   height: var(--size);
   position: relative;
-}
-
-.outline.border {
-  border: 10px solid var(--main-colour);
+  background-image: radial-gradient(var(--primary-gradient-colour) 10%, var(--secondary-gradient-colour) 90%);
+  border: 20px solid var(--bg-colour);
   border-radius: 50%;
 }
 
@@ -111,6 +104,7 @@ svg.segments {
   position: absolute;
   top: 0;
   left: 0;
+  mix-blend-mode: screen;
 }
 
 svg.segments > circle {
@@ -124,6 +118,16 @@ svg.segments > circle {
   stroke-dasharray: calc(var(--segment) - var(--gap)) var(--gap); 
   stroke-dashoffset: calc(var(--gap)/2 * -1);
   stroke-linecap: butt;
+}
+
+.header {
+  text-align: center;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin: 0 0 40px 0;
+  text-shadow: 0 2px 5px #000;
 }
 
 @keyframes move {
