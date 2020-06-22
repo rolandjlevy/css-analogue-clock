@@ -109,20 +109,21 @@ svg.segments {
 
 svg.segments > circle {
   --gap: var(--arm-width);
+  /* --stroke-inc: calc(var(--arm-width)/3); */
   --pi: 3.14159;
   --segment: calc((2 * var(--pi) * var(--size)/2)/12); /* see 3 in notes.md */
   stroke: var(--main-colour);
-  fill: none; 
-  stroke-opacity: 1; 
-  stroke-width: calc(var(--arm-width));
   stroke-dasharray: calc(var(--segment) - var(--gap)) var(--gap); 
+  stroke-width: 20px;
   stroke-dashoffset: calc(var(--gap)/2 * -1);
   stroke-linecap: butt;
+  stroke-opacity: 1; 
+  fill: none; 
 }
 
 .header {
   text-align: center;
-  color: #999;
+  color: #aaa;
   opacity: 0.6;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.7rem;
