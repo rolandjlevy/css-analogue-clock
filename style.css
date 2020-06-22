@@ -90,8 +90,8 @@ arm.rounded-end {
 }
 
 .outer-circle {
-  width: var(--size);
-  height: var(--size);
+  min-width: var(--size);
+  min-height: var(--size);
   position: relative;
   background-image: radial-gradient(var(--primary-gradient-colour) 10%, var(--secondary-gradient-colour) 90%);
   border: 20px solid var(--bg-colour);
@@ -122,7 +122,8 @@ svg.segments > circle {
 
 .header {
   text-align: center;
-  color: #fff;
+  color: #999;
+  opacity: 0.6;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.7rem;
   font-weight: bold;

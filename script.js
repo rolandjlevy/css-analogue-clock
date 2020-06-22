@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initClockArms();
   setCorrectTime();
-  initButtons();
+  // initButtons();
 });
 
 function initClockArms() {
