@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initClockArms();
   setCorrectTime();
-  // initButtons();
 });
 
 function initClockArms() {
@@ -25,21 +24,4 @@ function setCorrectTime() {
   document.documentElement.style.setProperty('--delay-minutes', `-${minutes * 60 + seconds}s`);
   const hours = new Date().getHours() % 12;
   document.documentElement.style.setProperty('--delay-hours', `-${hours * 3600 + (minutes * 60) + seconds}s`);
-}
-
-function resetTimer() {
-  document.documentElement.style.setProperty('--delay-seconds', 0);
-  document.documentElement.style.setProperty('--delay-minutes', 0);
-  document.documentElement.style.setProperty('--delay-hours', 0);
-}
-
-function initButtons() {
-  const timeBtn = document.querySelector('.btn.time');
-  timeBtn.addEventListener('click', (e) => {
-    setCorrectTime();
-  });
-  const resetBtn = document.querySelector('.btn.reset');
-  resetBtn.addEventListener('click', (e) => {
-    resetTimer();
-  });
 }
