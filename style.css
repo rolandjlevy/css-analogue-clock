@@ -148,6 +148,14 @@ svg.segments > circle {
   color: #ff3d77;
 }
 
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f35d";
+  margin-left: 5px;
+  font-size: 0.875rem;
+}
+
 @keyframes move {
   to { 
     transform: rotate(360deg); 
