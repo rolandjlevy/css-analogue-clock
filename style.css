@@ -132,6 +132,22 @@ svg.segments > circle {
   text-shadow: 0 2px 5px #000;
 }
 
+.footer {
+  font-family: monospace;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 60px 0 40px 0;
+  color: #999;
+}
+
+.footer > a {
+  color: #b84c5e;
+}
+
+.footer > a:hover {
+  color: #ff3d77;
+}
+
 @keyframes move {
   to { 
     transform: rotate(360deg); 
