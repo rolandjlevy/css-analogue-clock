@@ -1,27 +1,20 @@
-document.addEventListener('DOMContentLoaded', () => {
-  initClockArms();
-  setCorrectTime();
-});
-
-function initClockArms() {
-  initArm('.arm.seconds');
-  initArm('.arm.minutes');
-  initArm('.arm.hours');
-}
-
-function initArm (className) {
-  const arm = document.querySelector(className);
-  const transition = 'all 0.3s ease';
-  arm.classList.add('animate');
-  arm.style.opacity = 1;
-  arm.style.transition = transition;
-}
+const $ = (selector) => document.querySelector(selector);
+const setVar = (varName, value) => document.documentElement.style.setProperty(varName, value);
 
 function setCorrectTime() {
   const seconds = new Date().getSeconds();
-  document.documentElement.style.setProperty('--delay-seconds', `-${seconds}s`);
+  setVar('--delay-seconds', `-${seconds}s`);
   const minutes = new Date().getMinutes();
-  document.documentElement.style.setProperty('--delay-minutes', `-${minutes * 60 + seconds}s`);
+  setVar('--delay-minutes', `-${minutes * 60 + seconds}s`);
   const hours = new Date().getHours() % 12;
-  document.documentElement.style.setProperty('--delay-hours', `-${hours * 3600 + (minutes * 60) + seconds}s`);
+  setVar('--delay-hours', `-${hours * 3600 + (minutes * 60) + seconds}s`);
 }
+
+function initClockArms() {
+  ['seconds', 'minutes', 'hours'].forEach(item => {
+    $(`.arm.${item}`).classList.add('animate');
+  });
+}
+
+setCorrectTime();
+initClockArms();

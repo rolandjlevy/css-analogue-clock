@@ -5,8 +5,8 @@
 
 
 ### Links
-- [Source code](https://repl.it/@rjlevy/css-analogue-clock)
-- [Live demo](https://css-analogue-clock.rjlevy.repl.co)
-- [Github](https://github.com/rolandjlevy/css-analogue-clock/)
+- [See live demo](https://css-analogue-clock.rjlevy.repl.co)
+- [View source code](https://repl.it/@rjlevy/css-analogue-clock)
+- [Explore Github repo](https://github.com/rolandjlevy/css-analogue-clock/)
 
 ![Analogue Clock](https://css-analogue-clock.rjlevy.repl.co/images/clock.png "Analogue Clock")

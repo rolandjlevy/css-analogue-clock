@@ -2,13 +2,16 @@
   --size: 300px;
   --arm-width: 15px;
   --main-colour: #ffffffbb;
-  --bg-colour: #333;
+  --bg-colour: hsl(230, 30%, 20%);
+  --font-colour: hsl(230, 10%, 60%);
   --primary-gradient-colour: #ff3d77;
   --secondary-gradient-colour: #ffc400;
   --total-steps: 60;
-  --duration-seconds: 60s;
-  --duration-minutes: 3600s;
-  --duration-hours: 43200s;
+  --secs: 60s;
+  --duration-secs: var(--secs);
+  --mins: calc(var(--secs) * 60);
+  --duration-mins: var(--mins);
+  --duration-hours:  calc(var(--mins) * 12);
   --delay-seconds: 0;
   --delay-minutes: 0;
   --delay-hours: 0;
@@ -17,7 +20,7 @@
 body {
   box-sizing: border-box;
   margin: 20px;
-  background-color: #000;
+  background-color: hsl(230, 100%, 5%);
 }
 
 .arm {
@@ -27,21 +30,30 @@ body {
   background-color: var(--main-colour);
   transform-origin: calc(100% - var(--arm-width)/2) 100%;
   box-shadow: 2px 2px 15px 5px #00000033;
-  opacity: 0;
   mix-blend-mode: screen;
-}
-
-.animate {
   animation-name: move;
   animation-iteration-count: infinite;
   animation-direction: normal;
-  animation-fill-mode: forwards; 
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.animate {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+@keyframes move {
+  to { 
+    transform: rotate(360deg); 
+  }
 }
 
 .arm.seconds {
   height: calc(var(--size) / 2); /* 150px */
   top: 0; /* 0px */
-  animation-duration: var(--duration-seconds);
+  animation-duration: var(--duration-secs);
   animation-delay: var(--delay-seconds);
   animation-timing-function: steps(var(--total-steps), end);
   background-image: linear-gradient(var(--main-colour) 0%, var(--primary-gradient-colour) 90%);
@@ -50,7 +62,7 @@ body {
 .arm.minutes {
   height: calc(var(--size) / 3); /* 100px */
   top: calc(var(--size) / 6); /* 50px */
-  animation-duration: var(--duration-minutes);
+  animation-duration: var(--duration-mins);
   animation-delay: var(--delay-minutes);
   animation-timing-function: steps(var(--total-steps), end);
   background-image: linear-gradient(var(--main-colour) 20%, var(--primary-gradient-colour) 80%);
@@ -123,7 +135,7 @@ svg.segments > circle {
 
 .header {
   text-align: center;
-  color: #aaa;
+  color: var(--font-colour);
   opacity: 0.6;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.7rem;
@@ -137,7 +149,7 @@ svg.segments > circle {
   font-size: 1.3rem;
   text-align: center;
   padding: 60px 0 40px 0;
-  color: #999;
+  color: var(--font-colour);
 }
 
 .footer > a {
@@ -154,10 +166,4 @@ svg.segments > circle {
   content: "\f35d";
   margin-left: 5px;
   font-size: 0.875rem;
-}
-
-@keyframes move {
-  to { 
-    transform: rotate(360deg); 
-  }
 }
