@@ -1,5 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
 const setVar = (varName, value) => document.documentElement.style.setProperty(varName, value);
+$('.this-year').textContent = new Date().getFullYear();
 
 function setCorrectTime() {
   const seconds = new Date().getSeconds();

@@ -153,11 +153,11 @@ svg.segments > circle {
 }
 
 .footer > a {
-  color: #b84c5e;
+  color: hsl(342, 60%, 60%);
 }
 
 .footer > a:hover {
-  color: #ff3d77;
+  color: hsl(342, 70%, 70%);
 }
 
 .new-tab-icon::after {
