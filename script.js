@@ -11,11 +11,4 @@ function setCorrectTime() {
   setVar('--delay-hours', `-${hours * 3600 + (minutes * 60) + seconds}s`);
 }
 
-function initClockArms() {
-  ['seconds', 'minutes', 'hours'].forEach(item => {
-    $(`.arm.${item}`).classList.add('animate');
-  });
-}
-
 setCorrectTime();
-initClockArms();
